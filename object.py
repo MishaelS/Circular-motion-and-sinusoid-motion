@@ -19,10 +19,10 @@ class Object:
 		self.__radius = radius
 
 	def move(self, x=1, y=1, direction=1):
-		if self.__angle >= 360:
-			self.__angle = 0
 		self.__angle += round(1/self.__speed, 2)
 		self.__radian = self.__angle * pi/180
+
+		if self.__angle >= 360: self.__angle = 0
 		
 		if self.switch:
 			if x:
@@ -32,6 +32,3 @@ class Object:
 
 	def update(self):
 		self.surface.blit(self.image, self.rect)
-
-
-
